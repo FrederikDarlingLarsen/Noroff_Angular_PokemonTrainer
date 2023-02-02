@@ -1,0 +1,54 @@
+button{
+    color: black;
+    font-size: x-large;
+    width: 120px;
+    height: 50px;
+    background-color: aliceblue;
+    border-radius: 20px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+fieldset{
+    border: none;
+text-align: center;
+    font-size: x-large;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+
+img{
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h1{
+    text-align: center;
+    background-color: darkgray;
+    color: black;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+input{
+    height: 40px;
+    width: 300px;
+    border-radius: 10px;
+}
+
+
+.catGif{
+    width: 80px;
+    height: 80px;
+    display: block;
+    padding: 10px;
+    position: absolute;
+    float: right;
+ }
+
+p{
+    text-align: center;
+    font-size: x-large;
+ }

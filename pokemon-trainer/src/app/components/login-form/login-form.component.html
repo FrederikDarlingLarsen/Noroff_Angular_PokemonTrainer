@@ -1,18 +1,36 @@
-<h1>Please Login!</h1>
 
-<img src="https://i.pinimg.com/736x/ba/4a/cd/ba4acd6acbd117ef316db4615eb2345f--computer-programming-javascript.jpg" alt="">
+<img class="catGif" src="https://i.gifer.com/JQt.gif" alt="">
+<h1>Please Login! 
+    
+    
+    
+    
+</h1>
+
+
+
+<img src="https://cdn1.dotesports.com/wp-content/uploads/2021/04/18093902/052.png" alt="">
+
 
 <form #loginForm="ngForm" (ngSubmit)="loginSubmit(loginForm)">
 
     <fieldset>
         <label for="trainerName">Trainer name: </label>
         <input type="text"
-
+        
         ngModel
+        name="trainerName"
         #trainerName = "ngModel"
+        required
+        minlength="5"/>
 
-        name="trainerName" id="trainerName">
+        
+        
+        <button type="submit" [disabled]="loginForm.form.invalid">Login</button>
     </fieldset>
 
-    <button type="submit">Login</button>
+    <div *ngIf="trainerName.errors && (trainerName.dirty || trainerName.touched)">
+        <p *ngIf="trainerName.errors['required']">req</p>
+        <p *ngIf="trainerName.errors['minlength']">too short</p>
+    </div>
 </form>
