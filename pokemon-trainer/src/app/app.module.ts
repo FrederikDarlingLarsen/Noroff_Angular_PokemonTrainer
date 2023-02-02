@@ -7,6 +7,7 @@ import { LoginFormComponent } from './components/login-form/login-form.component
 import { CataloguePage } from './pages/catalogue/catalogue.page';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
 
 
 
@@ -16,6 +17,7 @@ import { FormsModule } from '@angular/forms';
     LoginPage,
     LoginFormComponent,
     CataloguePage,
+    PokemonListComponent,
   ],
   imports: [
     BrowserModule,

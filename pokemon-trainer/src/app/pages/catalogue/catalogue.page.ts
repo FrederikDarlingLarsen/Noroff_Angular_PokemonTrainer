@@ -1,10 +1,33 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Pokemon } from 'src/app/models/pokemon.model';
+import { PokemonPokelogueService } from 'src/app/services/pokemon-pokelogue/pokemon-pokelogue.service';
+
+// Video 8 - 10min ish
 
 @Component({
   selector: 'app-catalogue',
   templateUrl: './catalogue.page.html',
   styleUrls: ['./catalogue.page.css']
 })
-export class CataloguePage {
+export class CataloguePage implements OnInit {
 
+  get pokemon(): Pokemon[] {
+    return this.pokemonCatalogueService.pokemon;
+  }
+
+  get loading(): boolean {
+    return this.pokemonCatalogueService.loading;
+  }
+
+  get error(): string {
+    return this.pokemonCatalogueService.error;
+  }
+
+  constructor(
+    private readonly pokemonCatalogueService: PokemonPokelogueService
+  ) {}
+
+  ngOnInit(): void {
+    this.pokemonCatalogueService.findAllPokemon();
+  }
 }
