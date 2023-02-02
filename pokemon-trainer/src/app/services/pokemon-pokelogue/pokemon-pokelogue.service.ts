@@ -32,7 +32,7 @@ get loading(): boolean {
 
   public findAllPokemon(): void {
     this._loading = true;
-    this.http.get<Pokemon []>(apiPoke)
+    this.http.get<Pokemon[]>(apiPoke)
       .pipe(
         finalize(() => {
           this._loading = false;
@@ -46,7 +46,6 @@ get loading(): boolean {
         this._error = error.message;
       }
     })
-
   }
 
 }
