@@ -38,6 +38,7 @@ export class LoginService {
    private createUser(username: string): Observable<User>{
 
     const user = {
+      
       username,
       pokemon: []
     };
