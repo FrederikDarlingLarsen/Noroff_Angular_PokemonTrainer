@@ -1,15 +1,17 @@
-<p>login-form works!</p>
+<h1>Please Login!</h1>
+
+<img src="https://i.pinimg.com/736x/ba/4a/cd/ba4acd6acbd117ef316db4615eb2345f--computer-programming-javascript.jpg" alt="">
 
 <form #loginForm="ngForm" (ngSubmit)="loginSubmit(loginForm)">
 
     <fieldset>
-        <label for="usename">Username</label>
+        <label for="trainerName">Trainer name: </label>
         <input type="text"
 
         ngModel
-        #username = "ngModel"
+        #trainerName = "ngModel"
 
-        name="username" id="username">
+        name="trainerName" id="trainerName">
     </fieldset>
 
     <button type="submit">Login</button>

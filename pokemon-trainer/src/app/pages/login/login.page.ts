@@ -12,7 +12,7 @@ export class LoginPage {
   constructor(private readonly router: Router){}
 
   handleLogin(): void {
-    this.router.navigateByUrl('pokelogue')
+    this.router.navigateByUrl('/pokelogue')
   }
 
 

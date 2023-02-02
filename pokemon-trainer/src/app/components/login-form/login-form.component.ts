@@ -22,10 +22,10 @@ export class LoginFormComponent {
     
     public loginSubmit(loginForm: NgForm): void {
 
-      const {username} = loginForm.value;
-      console.log(username);
+      const {trainerName} = loginForm.value;
+      console.log(trainerName);
 
-      this.loginSevice.login(username)
+      this.loginSevice.login(trainerName)
       .subscribe({
         next: (user: User) => {
            // do we need the user?
