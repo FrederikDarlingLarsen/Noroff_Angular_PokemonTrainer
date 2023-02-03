@@ -15,6 +15,7 @@ export class PokemonPokelogueService {
 private _pokemon:Pokemon[] = [];
 private _error: string = "";
 private _loading: boolean = false;
+private _idPokemon: string[] = [];
 
 get pokemon(): Pokemon[] {
   return this._pokemon;
@@ -28,11 +29,15 @@ get loading(): boolean {
   return this._loading;
 }
 
+get idPokemon(): string[] {
+  return this._idPokemon;
+}
+
   constructor(private readonly http: HttpClient) { }
 
   public findAllPokemon(): void {
     this._loading = true;
-    this.http.get<Pokemon[]>(apiPoke)
+    this.http.get<Pokemon[]>(`${apiPoke}?limit=900&offset=0`)
       .pipe(
         finalize(() => {
           this._loading = false;
@@ -41,6 +46,7 @@ get loading(): boolean {
     .subscribe({
       next: (pokemon: any) => {
         this._pokemon = pokemon.results
+        this.getImagePaths()
       },
       error: (error: HttpErrorResponse) => {
         this._error = error.message;
@@ -48,5 +54,20 @@ get loading(): boolean {
     })
   }
 
-}
+  public getImagePaths(): void {
+    // let imageUrl = this._pokemon[0].url
+    // const id = imageUrl.split('/').filter(Boolean).pop();
+    // const path =`/assets/image/${id}.png`
+    // this._idPokemon = path
+    
+    for (let i = 0; i < this._pokemon.length; i++) {
+      let imageUrl = this._pokemon[i].url
+      const id = imageUrl.split('/').filter(Boolean).pop();
+      const path =`/assets/image/${id}.png` 
+      this._pokemon[i].image=path
+    }
+    }
+  }
+
+
 

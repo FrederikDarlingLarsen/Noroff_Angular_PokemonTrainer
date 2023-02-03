@@ -23,6 +23,10 @@ export class CataloguePage implements OnInit {
     return this.pokemonCatalogueService.error;
   }
 
+  get idPokemon(): string[] {
+    return this.pokemonCatalogueService.idPokemon;
+  }
+
   constructor(
     private readonly pokemonCatalogueService: PokemonPokelogueService
   ) {}

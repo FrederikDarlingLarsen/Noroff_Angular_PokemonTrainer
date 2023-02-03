@@ -10,6 +10,7 @@ export class PokemonListComponent implements OnInit{
   
   // Video 8 - 13min ish
   @Input() pokemon: Pokemon[] =[];
+  @Input() idPokemon: string[] = [];
 
   constructor() {}
 
