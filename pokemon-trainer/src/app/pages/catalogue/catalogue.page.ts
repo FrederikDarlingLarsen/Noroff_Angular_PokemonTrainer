@@ -27,6 +27,8 @@ export class CataloguePage implements OnInit {
     return this.pokemonCatalogueService.idPokemon;
   }
 
+  
+
   constructor(
     private readonly pokemonCatalogueService: PokemonPokelogueService
   ) {}

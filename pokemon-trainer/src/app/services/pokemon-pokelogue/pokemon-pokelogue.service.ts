@@ -17,6 +17,9 @@ private _error: string = "";
 private _loading: boolean = false;
 private _idPokemon: string[] = [];
 
+private _limit: number = 8;
+private _offset: number = 0;
+
 get pokemon(): Pokemon[] {
   return this._pokemon;
 }
@@ -33,11 +36,15 @@ get idPokemon(): string[] {
   return this._idPokemon;
 }
 
+get offset(): number{
+  return this._offset;
+}
+
   constructor(private readonly http: HttpClient) { }
 
   public findAllPokemon(): void {
     this._loading = true;
-    this.http.get<Pokemon[]>(`${apiPoke}?limit=900&offset=0`)
+    this.http.get<Pokemon[]>(`${apiPoke}?limit=${this._limit}&offset=${this._offset}`)
       .pipe(
         finalize(() => {
           this._loading = false;
@@ -67,6 +74,18 @@ get idPokemon(): string[] {
       this._pokemon[i].image=path
     }
     }
+
+    public nextPage(): void{
+      this._offset += this._limit;
+      console.log("hello")
+      this.findAllPokemon()
+     }
+    
+     public previousPage(): void{
+      this._offset -= this._limit;
+      this.findAllPokemon()
+     }
+    
   }
 
 

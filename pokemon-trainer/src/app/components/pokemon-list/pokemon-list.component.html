@@ -5,4 +5,7 @@
         <span>{{pokemon.name}}</span>
         <img src={{pokemon.image}} alt="">
     </li>
+    
 </ul>
+<button (click)="onPreviousClicked()" [disabled]="!canPrevious">Previous</button>
+<button (click)="onNextClicked()">Next</button>
