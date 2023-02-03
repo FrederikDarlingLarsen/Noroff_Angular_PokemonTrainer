@@ -8,6 +8,7 @@ import { CataloguePage } from './pages/catalogue/catalogue.page';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
+import { ProfilePage } from './pages/profile/profile.page';
 
 
 
@@ -18,6 +19,7 @@ import { PokemonListComponent } from './components/pokemon-list/pokemon-list.com
     LoginFormComponent,
     CataloguePage,
     PokemonListComponent,
+    ProfilePage,
   ],
   imports: [
     BrowserModule,
