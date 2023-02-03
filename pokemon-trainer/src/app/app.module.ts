@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
 import { LoginPage } from './pages/login/login.page';
 import { LoginFormComponent } from './components/login-form/login-form.component';
@@ -11,7 +12,7 @@ import { PokemonListComponent } from './components/pokemon-list/pokemon-list.com
 import { ProfilePage } from './pages/profile/profile.page';
 
 
-
+// Decorator
 @NgModule({
   declarations: [
     AppComponent,

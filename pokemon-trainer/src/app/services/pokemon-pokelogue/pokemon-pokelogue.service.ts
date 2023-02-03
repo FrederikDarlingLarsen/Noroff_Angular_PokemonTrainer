@@ -67,6 +67,11 @@ get idPokemon(): string[] {
       this._pokemon[i].image=path
     }
     }
+
+    public pokemonById(id: string): Pokemon | undefined {
+      return this._pokemon.find((pokemon: Pokemon) => pokemon.name === id); //Might not work
+    }
+
   }
 
 

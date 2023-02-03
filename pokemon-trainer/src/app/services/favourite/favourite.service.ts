@@ -1,0 +1,66 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { finalize, Observable } from 'rxjs';
+import { Pokemon } from 'src/app/models/pokemon.model';
+import { User } from 'src/app/models/user.model';
+import { environment } from 'src/environments/environment';
+import { PokemonPokelogueService } from '../pokemon-pokelogue/pokemon-pokelogue.service';
+import { UserService } from '../user.service';
+
+const {apiKey, apiTrainers} = environment;
+
+@Injectable({
+  providedIn: 'root'
+})
+export class FavouriteService {
+
+  private _loading: boolean = false;
+  get loading(): boolean {
+    return this._loading;
+  }
+
+  constructor(
+    private http: HttpClient,
+    private readonly pokemonService: PokemonPokelogueService,
+    private readonly userService: UserService,
+  ) { }
+
+  public addToFavourites(pokemonId: string): Observable<any> {
+
+    if (!this.userService.user) {
+      throw new Error ("addToFavourites: No user")
+    }
+    
+
+    const user: User = this.userService.user;
+    const pokemon: Pokemon | undefined = this.pokemonService.pokemonById(pokemonId); //
+
+    if (!pokemon) {
+      throw new Error("addToFavourites: No Pokemon with id: " + pokemonId);
+    }
+
+    
+    if (this.userService.inFavourites(pokemonId)) {
+      throw new Error("addToFavourites: Pokemon already in favourites");
+    }
+
+    const headers = new HttpHeaders({
+      'content-type': 'application/json',
+      'x-api-key': apiKey
+    })
+
+    this._loading = true;
+
+    return this.http.patch(`${apiTrainers}/${user.id}`,{
+      favourites: [...user.pokemon, pokemon]
+    }, {
+      headers
+    })
+    .pipe(
+      finalize(() => {
+        this._loading = false;
+      })
+    )
+  }
+
+}
