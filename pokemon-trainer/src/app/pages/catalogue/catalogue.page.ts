@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Pokemon } from 'src/app/models/pokemon.model';
 import { PokemonPokelogueService } from 'src/app/services/pokemon-pokelogue/pokemon-pokelogue.service';
+import { StorageUtil } from 'src/app/utils/storage.utils';
 
 // Video 8 - 10min ish
 
@@ -10,6 +11,9 @@ import { PokemonPokelogueService } from 'src/app/services/pokemon-pokelogue/poke
   styleUrls: ['./catalogue.page.css']
 })
 export class CataloguePage implements OnInit {
+
+
+ 
 
   get pokemon(): Pokemon[] {
     return this.pokemonCatalogueService.pokemon;
@@ -23,17 +27,23 @@ export class CataloguePage implements OnInit {
     return this.pokemonCatalogueService.error;
   }
 
-  get idPokemon(): string[] {
-    return this.pokemonCatalogueService.idPokemon;
-  }
-
   
+
+
 
   constructor(
     private readonly pokemonCatalogueService: PokemonPokelogueService
   ) {}
 
   ngOnInit(): void {
-    this.pokemonCatalogueService.findAllPokemon();
-  }
+ 
+    //sessionStorage.setItem("hasFetched", "false");
+
+      this.pokemonCatalogueService.findAllPokemon();
+   
+    
+    
+   
+ 
+}
 }

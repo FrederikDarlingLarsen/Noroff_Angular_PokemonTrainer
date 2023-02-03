@@ -1,7 +1,9 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { finalize } from 'rxjs';
+import { StorageKeys } from 'src/app/enums/storage-keys.enum';
 import { Pokemon } from 'src/app/models/pokemon.model';
+import { StorageUtil } from 'src/app/utils/storage.utils';
 import { environment } from 'src/environments/environment';
 const {apiPoke} = environment;
 
@@ -15,10 +17,14 @@ export class PokemonPokelogueService {
 private _pokemon:Pokemon[] = [];
 private _error: string = "";
 private _loading: boolean = false;
-private _idPokemon: string[] = [];
+
+public hasFetched: boolean = false;
+
 
 private _limit: number = 8;
 private _offset: number = 0;
+
+
 
 get pokemon(): Pokemon[] {
   return this._pokemon;
@@ -32,10 +38,6 @@ get loading(): boolean {
   return this._loading;
 }
 
-get idPokemon(): string[] {
-  return this._idPokemon;
-}
-
 get offset(): number{
   return this._offset;
 }
@@ -43,6 +45,9 @@ get offset(): number{
   constructor(private readonly http: HttpClient) { }
 
   public findAllPokemon(): void {
+
+
+ //   if(StorageUtil.storageRead<boolean>("hasFetched") === false){
     this._loading = true;
     this.http.get<Pokemon[]>(`${apiPoke}?limit=${this._limit}&offset=${this._offset}`)
       .pipe(
@@ -54,19 +59,27 @@ get offset(): number{
       next: (pokemon: any) => {
         this._pokemon = pokemon.results
         this.getImagePaths()
+   //     StorageUtil.storageSave<Pokemon[] >(StorageKeys.Pokemon, this._pokemon) 
+     ///   StorageUtil.storageSave<boolean>("hasFetched", true)
+        
       },
       error: (error: HttpErrorResponse) => {
         this._error = error.message;
       }
+      
     })
-  }
+  //}
+ // else{
+   //    console.log("yay")
+ 
+   //  }
+
+
+}
+
+  
 
   public getImagePaths(): void {
-    // let imageUrl = this._pokemon[0].url
-    // const id = imageUrl.split('/').filter(Boolean).pop();
-    // const path =`/assets/image/${id}.png`
-    // this._idPokemon = path
-    
     for (let i = 0; i < this._pokemon.length; i++) {
       let imageUrl = this._pokemon[i].url
       const id = imageUrl.split('/').filter(Boolean).pop();
