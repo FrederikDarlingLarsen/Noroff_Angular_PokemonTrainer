@@ -39,8 +39,8 @@ get loading(): boolean {
         })
       )
     .subscribe({
-      next: (pokemon: Pokemon[]) => {
-        this._pokemon = pokemon;
+      next: (pokemon: any) => {
+        this._pokemon = pokemon.results
       },
       error: (error: HttpErrorResponse) => {
         this._error = error.message;
