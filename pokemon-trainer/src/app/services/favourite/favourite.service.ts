@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { finalize, Observable } from 'rxjs';
+import { finalize, Observable, tap } from 'rxjs';
 import { Pokemon } from 'src/app/models/pokemon.model';
 import { User } from 'src/app/models/user.model';
 import { environment } from 'src/environments/environment';
@@ -25,7 +25,7 @@ export class FavouriteService {
     private readonly userService: UserService,
   ) { }
 
-  public addToFavourites(pokemonId: string): Observable<any> {
+  public addToFavourites(pokemonId: string): Observable<User> {
 
     if (!this.userService.user) {
       throw new Error ("addToFavourites: No user")
@@ -51,12 +51,15 @@ export class FavouriteService {
 
     this._loading = true;
 
-    return this.http.patch(`${apiTrainers}/${user.id}`,{
+    return this.http.patch<User>(`${apiTrainers}/${user.id}`,{
       favourites: [...user.pokemon, pokemon]
     }, {
       headers
     })
     .pipe(
+      tap((updatedUser: User) => {
+        this.userService.user = updatedUser;
+      }),
       finalize(() => {
         this._loading = false;
       })

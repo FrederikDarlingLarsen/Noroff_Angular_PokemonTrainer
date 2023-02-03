@@ -1,8 +1,12 @@
-<!-- Video 8 --> 
 
+<!-- Video 11 -->
+
+
+<!-- Video 8 --> 
 <ul>
-    <li *ngFor="let pokemon of pokemon">
+    <li *ngFor="let pokemon of pokemon" >
         <span>{{pokemon.name}}</span>
         <img src={{pokemon.image}} alt="">
+        <app-favourite-button [pokemonId]="pokemon.name"></app-favourite-button>
     </li>
 </ul>

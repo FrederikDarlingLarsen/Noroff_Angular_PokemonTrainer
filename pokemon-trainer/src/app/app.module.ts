@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
 import { ProfilePage } from './pages/profile/profile.page';
+import { FavouriteButtonComponent } from './components/favourite-button/favourite-button.component';
 
 
 // Decorator
@@ -21,6 +22,7 @@ import { ProfilePage } from './pages/profile/profile.page';
     CataloguePage,
     PokemonListComponent,
     ProfilePage,
+    FavouriteButtonComponent,
   ],
   imports: [
     BrowserModule,
