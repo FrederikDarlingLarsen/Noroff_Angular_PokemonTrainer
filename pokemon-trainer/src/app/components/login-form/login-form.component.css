@@ -2,16 +2,30 @@ button{
     color: black;
     font-size: x-large;
     width: 120px;
-    height: 50px;
+    height: 52px;
     background-color: aliceblue;
-    border-radius: 20px;
+    border-radius: 30px;
     cursor: pointer;
-    margin: 10px;
+    margin: 20px;
+    
 }
 
+button:hover:enabled{
+    background-color: lightgray;
+    
+}
+
+button:active:enabled {
+    background-color: gray;
+    box-shadow: 0 1px #666;
+    transform: translateY(1px);
+  }
+
+
 fieldset{
+    
     border: none;
-text-align: center;
+    text-align: center;
     font-size: x-large;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 
@@ -23,30 +37,14 @@ img{
   margin-right: auto;
 }
 
-h1{
-    text-align: center;
-    background-color: darkgray;
-    color: black;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-
 input{
+    margin-top: 20px;
     height: 40px;
     width: 300px;
     border-radius: 10px;
 }
 
 
-.catGif{
-    width: 80px;
-    height: 80px;
-    display: block;
-    padding: 10px;
-    position: absolute;
-    float: right;
- }
 
 p{
     text-align: center;

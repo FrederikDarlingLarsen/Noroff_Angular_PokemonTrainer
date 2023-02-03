@@ -17,5 +17,9 @@ public static storageRead<T>(key: string): T | undefined {
     return undefined;
   }
 }
+
+
+
+
 }
 

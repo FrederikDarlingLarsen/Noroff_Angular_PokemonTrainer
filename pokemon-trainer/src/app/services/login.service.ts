@@ -4,8 +4,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { map, Observable, of, switchMap } from 'rxjs'
 import { User } from '../models/user.model';
 
-const {apiTrainers} = environment
-const {apiKey} = environment
+const {apiTrainers, apiKey} = environment
+
 
 @Injectable({
   providedIn: 'root'
