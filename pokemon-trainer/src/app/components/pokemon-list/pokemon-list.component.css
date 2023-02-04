@@ -1,0 +1,46 @@
+ul{
+    /* text-align: center; */
+    list-style-type: none;
+    /* display: inline; */
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+    column-gap: 80px;
+    padding: 0;
+    margin-left: 20%;
+margin-right: 20%;
+
+}
+li{
+
+  background-color: aliceblue;
+ padding: 20px;
+ margin-top: 30px;
+  border-radius: 16px;
+  display: inline-block;
+width: 100%;
+}
+
+img{
+    margin-top: 10px;
+border: 2px black;
+}
+
+button{
+    text-align: center;
+    width: 250px;
+    height: 60px;
+    margin: 30px;
+    border-radius: 10px;
+}
+
+span{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: x-large;
+   display: block;
+   padding-block-end: 10px;
+}
+
+div{
+    text-align: center;
+}

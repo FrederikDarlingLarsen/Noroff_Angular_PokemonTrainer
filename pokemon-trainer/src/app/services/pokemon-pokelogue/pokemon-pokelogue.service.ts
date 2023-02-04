@@ -83,7 +83,10 @@ get offset(): number{
     for (let i = 0; i < this._pokemon.length; i++) {
       let imageUrl = this._pokemon[i].url
       const id = imageUrl.split('/').filter(Boolean).pop();
-      const path =`/assets/image/${id}.png` 
+    //  const path =`/assets/image/${id}.png` 
+
+    const path =`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png` 
+   
       this._pokemon[i].image=path
     }
     }
