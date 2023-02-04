@@ -34,6 +34,7 @@ export class FavouriteButtonComponent implements OnInit {
     this.favouriteService.addToFavourites(this.pokemonId)
     .subscribe({
       next: (user: User) => {
+        console.log("NEXT", user);
         this.isFavourite = this.userService.inFavourites(this.pokemonId);
       },
       error: (error: HttpErrorResponse) => {
