@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Pokemon } from 'src/app/models/pokemon.model';
 import { PokemonPokelogueService } from 'src/app/services/pokemon-pokelogue/pokemon-pokelogue.service';
+import { UserService } from 'src/app/services/user.service';
 import { StorageUtil } from 'src/app/utils/storage.utils';
 
 // Video 8 - 10min ish
@@ -12,7 +13,10 @@ import { StorageUtil } from 'src/app/utils/storage.utils';
 })
 export class CataloguePage implements OnInit {
 
-
+  
+ get username(): string | undefined {
+  return this.userService.user?.username
+ }
  
 
   get pokemon(): Pokemon[] | undefined {
@@ -36,7 +40,8 @@ export class CataloguePage implements OnInit {
 
 
   constructor(
-    private readonly pokemonCatalogueService: PokemonPokelogueService
+    private readonly pokemonCatalogueService: PokemonPokelogueService,
+    private readonly userService: UserService
   ) {}
 
   ngOnInit(): void {

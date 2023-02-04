@@ -12,12 +12,14 @@ const routes: Routes = [
   },
   {
     path: "login",
+   
     component: LoginPage
   },
   {
     path: "pokelogue",
+    canActivate: [AuthGuard],
     component: CataloguePage,
-    canActivate: [AuthGuard]
+    
   },
 
 ];

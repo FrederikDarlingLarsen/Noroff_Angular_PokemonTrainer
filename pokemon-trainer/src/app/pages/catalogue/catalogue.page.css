@@ -1,27 +1,46 @@
-div{
+.theMain{
     background-color: lightpink;
     height: 1100px;
 }
 
 
-h1{
-    font-size: 60px;
+/* .profile{
+    text-align: right;
+    /* float: right; 
+    padding-right: 20px;
+} */
+
+.header{
+    font-size: 20px;
     text-align: center;
     background-color: darkgray;
     color: black;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .catGif{
-    width: 120px;
-    height: 120px;
+    width: 140px;
+    height: 140px;
     display: block;
-    padding: 10px;
+    padding-left: 20px;
     position: absolute;
-    float: right;
+ 
  }
+
+ .catProfile{
+    width: 100px;
+    height: 100px;
+    display: block;
+    padding-top: 10px ;
+    padding-left: 80%;
+    position: absolute;
+    display: -webkit-box;
+
+    margin-left: auto;
+ }
+
 
  p{
     font-size: 24px;
