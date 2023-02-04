@@ -14,19 +14,22 @@ const {apiPoke} = environment;
 })
 export class PokemonPokelogueService {
 
-private _pokemon:Pokemon[] = [];
+  private _allPokemon:Pokemon[] | undefined = [];
+
+private _pokemon:Pokemon[] | undefined = [];
 private _error: string = "";
 private _loading: boolean = false;
 
 public hasFetched: boolean = false;
 
 
-private _limit: number = 8;
+private _limit: number = 12;
 private _offset: number = 0;
+private _pageNum: number = 1;
 
 
 
-get pokemon(): Pokemon[] {
+get pokemon(): Pokemon[] | undefined {
   return this._pokemon;
 }
 
@@ -42,14 +45,18 @@ get offset(): number{
   return this._offset;
 }
 
+get pageNum(): number{
+  return this._pageNum;
+}
+
   constructor(private readonly http: HttpClient) { }
 
   public findAllPokemon(): void {
 
 
- //   if(StorageUtil.storageRead<boolean>("hasFetched") === false){
+    if(StorageUtil.storageRead<boolean>("hasFetched") === false){
     this._loading = true;
-    this.http.get<Pokemon[]>(`${apiPoke}?limit=${this._limit}&offset=${this._offset}`)
+    this.http.get<Pokemon[]>(`${apiPoke}?limit=1000&offset=0`)
       .pipe(
         finalize(() => {
           this._loading = false;
@@ -57,10 +64,22 @@ get offset(): number{
       )
     .subscribe({
       next: (pokemon: any) => {
-        this._pokemon = pokemon.results
-        this.getImagePaths()
-   //     StorageUtil.storageSave<Pokemon[] >(StorageKeys.Pokemon, this._pokemon) 
-     ///   StorageUtil.storageSave<boolean>("hasFetched", true)
+        this._allPokemon = pokemon.results
+        
+        if(this._allPokemon){
+       StorageUtil.storageSave<Pokemon[] >(StorageKeys.Pokemon, this._allPokemon) 
+       StorageUtil.storageSave<boolean>("hasFetched", true)
+      }
+
+
+      if(this._allPokemon){
+
+        this._pokemon = []
+        for(let i = this._offset; i < this._limit+this._offset; i++){
+           this._pokemon?.push(this._allPokemon[i])
+        }
+        this.getImagePaths()  
+      }
         
       },
       error: (error: HttpErrorResponse) => {
@@ -68,11 +87,26 @@ get offset(): number{
       }
       
     })
-  //}
- // else{
-   //    console.log("yay")
- 
-   //  }
+  }
+ else{
+      console.log("yay")
+      this._allPokemon = StorageUtil.storageRead<Pokemon[]>(StorageKeys.Pokemon)
+
+      if(this._allPokemon){
+
+        this._pokemon = []
+        for(let i = this._offset; i < this._limit+this._offset; i++){
+           this._pokemon?.push(this._allPokemon[i])
+        }
+        this.getImagePaths()  
+      }
+
+     }
+
+     //set this._pokemon to the number of pokemon with correct limit and offset.
+
+
+
 
 
 }
@@ -80,6 +114,7 @@ get offset(): number{
   
 
   public getImagePaths(): void {
+    if(this._pokemon){
     for (let i = 0; i < this._pokemon.length; i++) {
       let imageUrl = this._pokemon[i].url
       const id = imageUrl.split('/').filter(Boolean).pop();
@@ -89,18 +124,22 @@ get offset(): number{
    
       this._pokemon[i].image=path
     }
+  }
     }
 
     public nextPage(): void{
       this._offset += this._limit;
-      console.log("hello")
+      this._pageNum++
+     // console.log("hello")
       this.findAllPokemon()
      }
     
      public previousPage(): void{
       this._offset -= this._limit;
+      this._pageNum--
       this.findAllPokemon()
      }
+    
     
   }
 

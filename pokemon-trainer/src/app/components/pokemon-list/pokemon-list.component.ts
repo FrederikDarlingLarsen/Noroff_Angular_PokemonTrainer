@@ -10,7 +10,7 @@ import { PokemonPokelogueService } from 'src/app/services/pokemon-pokelogue/poke
 export class PokemonListComponent implements OnInit{
   
   // Video 8 - 13min ish
-  @Input() pokemon: Pokemon[] = [];
+  @Input() pokemon: Pokemon[] | undefined = [];
 
  canPrevious = false;
 

@@ -2,19 +2,19 @@ ul{
     /* text-align: center; */
     list-style-type: none;
     /* display: inline; */
-    columns: 2;
-    -webkit-columns: 2;
-    -moz-columns: 2;
-    column-gap: 80px;
+    columns: 3;
+    -webkit-columns: 3;
+    -moz-columns: 3;
+    column-gap: 30px;
     padding: 0;
-    margin-left: 20%;
-margin-right: 20%;
+    margin-left: 22%;
+margin-right: 22%;
 
 }
 li{
 
   background-color: aliceblue;
- padding: 20px;
+
  margin-top: 30px;
   border-radius: 16px;
   display: inline-block;
@@ -32,6 +32,10 @@ button{
     height: 60px;
     margin: 30px;
     border-radius: 10px;
+    font-size:20px;
+    
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: bolder;
 }
 
 span{

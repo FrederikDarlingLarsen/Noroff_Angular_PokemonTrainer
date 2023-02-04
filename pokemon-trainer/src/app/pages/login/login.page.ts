@@ -13,7 +13,7 @@ export class LoginPage {
   constructor(private readonly router: Router){}
 
   handleLogin(): void {
-   // StorageUtil.storageSave<boolean>("hasFetched", false);
+   StorageUtil.storageSave<boolean>("hasFetched", false);
     this.router.navigateByUrl('/pokelogue')
   }
 

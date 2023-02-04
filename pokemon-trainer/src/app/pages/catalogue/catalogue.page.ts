@@ -15,7 +15,7 @@ export class CataloguePage implements OnInit {
 
  
 
-  get pokemon(): Pokemon[] {
+  get pokemon(): Pokemon[] | undefined {
     return this.pokemonCatalogueService.pokemon;
   }
 
@@ -25,6 +25,10 @@ export class CataloguePage implements OnInit {
 
   get error(): string {
     return this.pokemonCatalogueService.error;
+  }
+
+  get pageNum(): number {
+    return this.pokemonCatalogueService.pageNum;
   }
 
   

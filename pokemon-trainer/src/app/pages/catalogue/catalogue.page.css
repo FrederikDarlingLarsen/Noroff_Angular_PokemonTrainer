@@ -1,5 +1,6 @@
 div{
-    background-color: lightpink
+    background-color: lightpink;
+    height: 1100px;
 }
 
 
@@ -20,4 +21,10 @@ h1{
     padding: 10px;
     position: absolute;
     float: right;
+ }
+
+ p{
+    font-size: 24px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   text-align: center;
  }
