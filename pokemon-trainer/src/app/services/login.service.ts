@@ -27,7 +27,7 @@ export class LoginService {
   }
 
  // check if user exists
- private checkTrainer(trainerName: string): Observable<User | undefined>{
+  private checkTrainer(trainerName: string): Observable<User | undefined>{
   return this.http.get<User[]>(`${apiTrainers}?username=${trainerName}`)
   .pipe(
     map((response: User[]) => response.pop())
@@ -35,7 +35,7 @@ export class LoginService {
 }
 
    // if not user, create user
-   private createUser(username: string): Observable<User>{
+  private createUser(username: string): Observable<User>{
 
     const user = {
       

@@ -30,8 +30,8 @@ export class LoginFormComponent {
         next: (user: User) => {
            // do we need the user?
            //redirect to catalogue page
-           this.userService.user = user;
-           this.login.emit();
+          this.userService.user = user;
+          this.login.emit();
         },
         error: () => {
 

@@ -15,8 +15,9 @@ const {apiKey, apiTrainers} = environment;
 export class FavouriteService {
 
   private _loading: boolean = false;
-  get loading(): boolean {
-    return this._loading;
+  
+    get loading(): boolean {
+      return this._loading;
   }
 
   constructor(

@@ -25,12 +25,10 @@ export class UserService {
     this._user = StorageUtil.storageRead<User>(StorageKeys.User)
   }
 
-
   public inFavourites(pokemonId: string): boolean {
     if (this._user) {
       return Boolean(this.user?.pokemon.find((pokemon: Pokemon) => pokemon.name === pokemonId)); //
     }
-
     return false;
 
   }
