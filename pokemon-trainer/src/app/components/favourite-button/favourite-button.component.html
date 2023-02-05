@@ -1,16 +1,9 @@
-<!-- Video 11 -->
-<button (click)="onFavouriteClick()">   
-    <ng-container *ngIf="isFavourite; then favourite else notFavourite" class="material-symbols-outlined"></ng-container>
-
+<button (click)="onFavouriteClick()" class="favourite-button-color">   
+    <ng-container *ngIf="isFavourite; then favourite else notFavourite"></ng-container>
     <ng-template #favourite>
-        <span class="material-symbols-outlined">favorite</span>
+        <i class="fa-solid fa-heart"></i>
     </ng-template>
     <ng-template #notFavourite>
-        <span class="material-symbols-outlined">favorite_border</span>
+        <i class="fa-regular fa-heart"></i>
     </ng-template>
-
 </button>
-
-<!-- <span class="material-icons-outlined">favorite</span> -->
-<!-- <span class="material-icons-outlined">favorite_border</span> -->
-<!-- <span *ngIf="isFavourite; then favourite else notFavourite"></span> -->
