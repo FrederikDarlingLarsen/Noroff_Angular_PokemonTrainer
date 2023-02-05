@@ -40,9 +40,11 @@ export class FavouriteService {
       throw new Error("addToFavourites: No Pokemon with id: " + pokemonId);
     }
 
-    
+    // Does the Pokemon exist in favourites
     if (this.userService.inFavourites(pokemonId)) {
-      throw new Error("addToFavourites: Pokemon already in favourites");
+      this.userService.removeFromFavourites(pokemonId);
+    } else {
+      this.userService.addToFavourites(pokemon);
     }
 
     const headers = new HttpHeaders({
@@ -53,7 +55,7 @@ export class FavouriteService {
     this._loading = true;
 
     return this.http.patch<User>(`${apiTrainers}/${user.id}`,{
-      pokemon: [...user.pokemon, pokemon]
+      pokemon: [...user.pokemon]
     }, {
       headers
     })
