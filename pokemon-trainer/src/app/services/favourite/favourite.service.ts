@@ -53,7 +53,7 @@ export class FavouriteService {
     this._loading = true;
 
     return this.http.patch<User>(`${apiTrainers}/${user.id}`,{
-      favourites: [...user.pokemon, pokemon]
+      pokemon: [...user.pokemon, pokemon]
     }, {
       headers
     })
