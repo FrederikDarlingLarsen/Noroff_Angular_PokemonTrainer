@@ -1,12 +1,16 @@
 .navbar-color{
-    background-color: blueviolet;
     display: flex;
     justify-content: space-evenly;
-    align-items: center;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
+    font-size: 20px;
+    background-color: darkgray;
+    color: black;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .navbar-list{
@@ -14,11 +18,19 @@
 }
 
 .poke-box {
+    color: black;
     padding: 1rem;
-    list-style-type: none;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-decoration: none;
 }
 
 .profile-box{
+    color: black;
     padding: 1rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-decoration: none;
+}
+
+.box{
     list-style-type: none;
 }
