@@ -1,13 +1,11 @@
-
-
 <nav class="navbar-color">
-    <div class="move-cat">    
-        <img class="catGif" src="https://i.gifer.com/JQt.gif" alt="">
+  <div class="move-cat">
+    <img class="catGif" src="https://i.gifer.com/JQt.gif" alt="" />
+  </div>
+  <ng-container *ngIf="user !== undefined">
+    <div class="text-box">
+      <a routerLink="/pokelogue" class="pokelogue">Pokelogue</a>
+      <a routerLink="/profile" class="profile">Profile</a>
     </div>
-    <ng-container *ngIf="user !== undefined">
-            <div class="text-box">
-                <a routerLink="/pokelogue" class="pokelogue">Pokelogue</a>
-                <a routerLink="/profile" class="profile">Profile</a>
-            </div>
-    </ng-container>
+  </ng-container>
 </nav>

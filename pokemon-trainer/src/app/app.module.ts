@@ -13,7 +13,6 @@ import { ProfilePage } from './pages/profile/profile.page';
 import { FavouriteButtonComponent } from './components/favourite-button/favourite-button.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 
-
 // Decorator
 @NgModule({
   declarations: [
@@ -26,13 +25,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     FavouriteButtonComponent,
     NavbarComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule 
-  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

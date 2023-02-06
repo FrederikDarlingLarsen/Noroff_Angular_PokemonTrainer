@@ -7,30 +7,28 @@ import { ProfilePage } from './pages/profile/profile.page';
 
 const routes: Routes = [
   {
-    path: "",
-    pathMatch: "full",
-    redirectTo: "/login"
+    path: '',
+    pathMatch: 'full',
+    redirectTo: '/login',
   },
   {
-    path: "login",
-   
-    component: LoginPage
+    path: 'login',
+
+    component: LoginPage,
   },
   {
-    path: "pokelogue",
+    path: 'pokelogue',
     canActivate: [AuthGuard],
     component: CataloguePage,
-    
   },
   {
-    path: "profile",
-    component: ProfilePage
-  }
-
+    path: 'profile',
+    component: ProfilePage,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

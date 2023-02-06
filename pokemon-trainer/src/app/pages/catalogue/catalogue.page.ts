@@ -7,15 +7,12 @@ import { StorageUtil } from 'src/app/utils/storage.utils';
 @Component({
   selector: 'app-catalogue',
   templateUrl: './catalogue.page.html',
-  styleUrls: ['./catalogue.page.css']
+  styleUrls: ['./catalogue.page.css'],
 })
 export class CataloguePage implements OnInit {
-
-  
- get username(): string | undefined {
-  return this.userService.user?.username
- }
- 
+  get username(): string | undefined {
+    return this.userService.user?.username;
+  }
 
   get pokemon(): Pokemon[] | undefined {
     return this.pokemonCatalogueService.pokemon;
@@ -33,24 +30,13 @@ export class CataloguePage implements OnInit {
     return this.pokemonCatalogueService.pageNum;
   }
 
-  
-
-
-
   constructor(
     private readonly pokemonCatalogueService: PokemonPokelogueService,
     private readonly userService: UserService
   ) {}
 
   ngOnInit(): void {
- 
-    //sessionStorage.setItem("hasFetched", "false");
 
-      this.pokemonCatalogueService.findAllPokemon();
-   
-    
-    
-   
- 
-}
+    this.pokemonCatalogueService.findAllPokemon();
+  }
 }

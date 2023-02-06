@@ -1,39 +1,36 @@
-
-.navbar-color{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    font-size: 20px;
-    background-color: darkgray;
-    color: black;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    height: 5rem;
-    z-index: 5;
+.navbar-color {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  font-size: 20px;
+  background-color: darkgray;
+  color: black;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  height: 5rem;
+  z-index: 5;
 }
 
-.catGif{
-    width: 80px;
-    height: 80px;
+.catGif {
+  width: 80px;
+  height: 80px;
 }
 
 .text-box {
-    text-align: right;
-    margin-top: -3.5rem;
-    margin-right: 2rem;
-    
+  text-align: right;
+  margin-top: -3.5rem;
+  margin-right: 2rem;
 }
 
-.profile{
-    color: black;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    text-decoration: none;
+.profile {
+  color: black;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  text-decoration: none;
 }
 
-
-.pokelogue{
-    padding: 1rem;
-    color: black;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    text-decoration: none;
+.pokelogue {
+  padding: 1rem;
+  color: black;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  text-decoration: none;
 }

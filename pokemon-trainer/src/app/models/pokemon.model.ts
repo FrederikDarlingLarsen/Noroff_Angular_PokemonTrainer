@@ -1,5 +1,5 @@
-export interface Pokemon{
-    name: string;
-    url: string;
-    image: string;
+export interface Pokemon {
+  name: string;
+  url: string;
+  image: string;
 }

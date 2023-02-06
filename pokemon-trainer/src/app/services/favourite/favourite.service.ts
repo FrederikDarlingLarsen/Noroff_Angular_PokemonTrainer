@@ -7,37 +7,35 @@ import { environment } from 'src/environments/environment';
 import { PokemonPokelogueService } from '../pokemon-pokelogue/pokemon-pokelogue.service';
 import { UserService } from '../user.service';
 
-const {apiKey, apiTrainers} = environment;
+const { apiKey, apiTrainers } = environment;
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class FavouriteService {
-
   private _loading: boolean = false;
-  
-    get loading(): boolean {
-      return this._loading;
+
+  get loading(): boolean {
+    return this._loading;
   }
 
   constructor(
     private http: HttpClient,
     private readonly pokemonService: PokemonPokelogueService,
-    private readonly userService: UserService,
-  ) { }
+    private readonly userService: UserService
+  ) {}
 
   public addToFavourites(pokemonId: string): Observable<User> {
-
     if (!this.userService.user) {
-      throw new Error ("addToFavourites: No user")
+      throw new Error('addToFavourites: No user');
     }
-    
 
     const user: User = this.userService.user;
-    const pokemon: Pokemon | undefined = this.pokemonService.pokemonById(pokemonId); //
+    const pokemon: Pokemon | undefined =
+      this.pokemonService.pokemonById(pokemonId); //
 
     if (!pokemon) {
-      throw new Error("addToFavourites: No Pokemon with id: " + pokemonId);
+      throw new Error('addToFavourites: No Pokemon with id: ' + pokemonId);
     }
 
     // Does the Pokemon exist in favourites
@@ -49,24 +47,28 @@ export class FavouriteService {
 
     const headers = new HttpHeaders({
       'content-type': 'application/json',
-      'x-api-key': apiKey
-    })
+      'x-api-key': apiKey,
+    });
 
     this._loading = true;
 
-    return this.http.patch<User>(`${apiTrainers}/${user.id}`,{
-      pokemon: [...user.pokemon]
-    }, {
-      headers
-    })
-    .pipe(
-      tap((updatedUser: User) => {
-        this.userService.user = updatedUser;
-      }),
-      finalize(() => {
-        this._loading = false;
-      })
-    )
+    return this.http
+      .patch<User>(
+        `${apiTrainers}/${user.id}`,
+        {
+          pokemon: [...user.pokemon],
+        },
+        {
+          headers,
+        }
+      )
+      .pipe(
+        tap((updatedUser: User) => {
+          this.userService.user = updatedUser;
+        }),
+        finalize(() => {
+          this._loading = false;
+        })
+      );
   }
-
 }

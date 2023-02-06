@@ -5,32 +5,31 @@ import { PokemonPokelogueService } from 'src/app/services/pokemon-pokelogue/poke
 @Component({
   selector: 'app-pokemon-list',
   templateUrl: './pokemon-list.component.html',
-  styleUrls: ['./pokemon-list.component.css']
+  styleUrls: ['./pokemon-list.component.css'],
 })
-export class PokemonListComponent implements OnInit{
+export class PokemonListComponent implements OnInit {
   
-  // Video 8 - 13min ish
   @Input() pokemon: Pokemon[] | undefined = [];
 
- canPrevious = false;
+  canPrevious = false;
 
-  constructor(private readonly pokemonCatalogueService: PokemonPokelogueService) {}
+  constructor(
+    private readonly pokemonCatalogueService: PokemonPokelogueService
+  ) {}
 
-  public onNextClicked(): void{
-    if(!this.canPrevious){
-       this.canPrevious=true;
+  public onNextClicked(): void {
+    if (!this.canPrevious) {
+      this.canPrevious = true;
     }
-    this.pokemonCatalogueService.nextPage()
-    }
-
-    public onPreviousClicked(): void{
-      this.pokemonCatalogueService.previousPage()
-      if(this.pokemonCatalogueService.offset ===0){
-        this.canPrevious=false;
-      }}
-
-  ngOnInit(): void {
-    
+    this.pokemonCatalogueService.nextPage();
   }
 
+  public onPreviousClicked(): void {
+    this.pokemonCatalogueService.previousPage();
+    if (this.pokemonCatalogueService.offset === 0) {
+      this.canPrevious = false;
+    }
+  }
+
+  ngOnInit(): void {}
 }

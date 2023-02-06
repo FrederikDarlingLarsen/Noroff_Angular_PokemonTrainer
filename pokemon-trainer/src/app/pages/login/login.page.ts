@@ -5,17 +5,13 @@ import { StorageUtil } from 'src/app/utils/storage.utils';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
-  styleUrls: ['./login.page.css']
+  styleUrls: ['./login.page.css'],
 })
 export class LoginPage {
-
-
-  constructor(private readonly router: Router){}
+  constructor(private readonly router: Router) {}
 
   handleLogin(): void {
-   StorageUtil.storageSave<boolean>("hasFetched", false);
-    this.router.navigateByUrl('/pokelogue')
+    StorageUtil.storageSave<boolean>('hasFetched', false);
+    this.router.navigateByUrl('/pokelogue');
   }
-
-
 }

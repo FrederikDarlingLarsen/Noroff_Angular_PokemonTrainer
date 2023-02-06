@@ -7,12 +7,11 @@ import { UserService } from 'src/app/services/user.service';
 @Component({
   selector: 'app-favourite-button',
   templateUrl: './favourite-button.component.html',
-  styleUrls: ['./favourite-button.component.css']
+  styleUrls: ['./favourite-button.component.css'],
 })
 export class FavouriteButtonComponent implements OnInit {
-
   public isFavourite: boolean = false;
-  @Input() pokemonId: string ="";
+  @Input() pokemonId: string = '';
 
   get loading(): boolean {
     return this.favouriteService.loading;
@@ -20,9 +19,9 @@ export class FavouriteButtonComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private readonly favouriteService: FavouriteService) 
-    {}
-    
+    private readonly favouriteService: FavouriteService
+  ) {}
+
   ngOnInit(): void {
     // Check if it's a favourite or not
     this.isFavourite = this.userService.inFavourites(this.pokemonId); //
@@ -30,18 +29,14 @@ export class FavouriteButtonComponent implements OnInit {
 
   // Add the Pokemon to the favourites
   onFavouriteClick(): void {
-    // alert("Added " + this.pokemonId + " to favourites");
-    this.favouriteService.addToFavourites(this.pokemonId)
-    .subscribe({
+    this.favouriteService.addToFavourites(this.pokemonId).subscribe({
       next: (user: User) => {
-        console.log("NEXT", user);
+        console.log('NEXT', user);
         this.isFavourite = this.userService.inFavourites(this.pokemonId);
       },
       error: (error: HttpErrorResponse) => {
-        console.log("ERROR", error.message);
-      } 
-    })
+        console.log('ERROR', error.message);
+      },
+    });
   }
-  
-
 }

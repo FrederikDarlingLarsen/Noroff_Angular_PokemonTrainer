@@ -1,16 +1,16 @@
-
-
-<ul> 
-    <li *ngFor="let pokemon of pokemon">
-        <div>
-        <img src={{pokemon.image}} alt="" width="140px">
-        <span>{{pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}}</span>
-        <app-favourite-button [pokemonId]="pokemon.name"></app-favourite-button>
+<ul>
+  <li *ngFor="let pokemon of pokemon">
+    <div>
+      <img src="{{ pokemon.image }}" alt="" width="140px" />
+      <span>{{
+        pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)
+      }}</span>
+      <app-favourite-button [pokemonId]="pokemon.name"></app-favourite-button>
     </div>
-    </li>
+  </li>
 </ul>
 
 <div>
-<button (click)="onPreviousClicked()" [disabled]="!canPrevious">←</button>
-<button (click)="onNextClicked()">→</button>
+  <button (click)="onPreviousClicked()" [disabled]="!canPrevious">←</button>
+  <button (click)="onNextClicked()">→</button>
 </div>
