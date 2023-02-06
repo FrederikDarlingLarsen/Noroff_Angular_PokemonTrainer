@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Pokemon } from 'src/app/models/pokemon.model';
 import { PokemonPokelogueService } from 'src/app/services/pokemon-pokelogue/pokemon-pokelogue.service';
 
-// Video 8 - 10min ish
-
 @Component({
   selector: 'app-catalogue',
   templateUrl: './catalogue.page.html',

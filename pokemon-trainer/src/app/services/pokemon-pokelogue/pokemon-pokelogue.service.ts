@@ -5,8 +5,6 @@ import { Pokemon } from 'src/app/models/pokemon.model';
 import { environment } from 'src/environments/environment';
 const {apiPoke} = environment;
 
-// Video 8
-
 @Injectable({
   providedIn: 'root'
 })
@@ -36,6 +34,11 @@ get idPokemon(): string[] {
   constructor(private readonly http: HttpClient) { }
 
   public findAllPokemon(): void {
+
+    if (this._pokemon.length > 0 || this.loading) {
+      return;
+    }
+  
     this._loading = true;
     this.http.get<Pokemon[]>(`${apiPoke}?limit=900&offset=0`)
       .pipe(
