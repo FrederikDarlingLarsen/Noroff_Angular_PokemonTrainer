@@ -1,49 +1,9 @@
-.theMain{
-    background-color: lightpink;
-    height: 1100px;
+*{
+    background-color: pink;
 }
 
-
-/* .profile{
-    text-align: right;
-    /* float: right; 
-    padding-right: 20px;
-} */
-
-.header{
-    font-size: 20px;
-    text-align: center;
-    background-color: darkgray;
-    color: black;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-
-.catGif{
-    width: 140px;
-    height: 140px;
-    display: block;
-    padding-left: 20px;
-    position: absolute;
- 
- }
-
- .catProfile{
-    width: 100px;
-    height: 100px;
-    display: block;
-    padding-top: 10px ;
-    padding-left: 80%;
-    position: absolute;
-    display: -webkit-box;
-
-    margin-left: auto;
- }
-
-
- p{
+p{
     font-size: 24px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-   text-align: center;
- }
+    text-align: center;
+}

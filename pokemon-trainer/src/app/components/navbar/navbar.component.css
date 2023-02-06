@@ -1,6 +1,6 @@
+
 .navbar-color{
-    display: flex;
-    justify-content: space-evenly;
+    /* display: flex; */
     position: fixed;
     top: 0;
     left: 0;
@@ -8,29 +8,16 @@
     font-size: 20px;
     background-color: darkgray;
     color: black;
-    padding-top: 10px;
-    padding-bottom: 10px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    height: 5rem;
 }
 
-.navbar-list{
-    display: flex;
+.catGif{
+    width: 100px;
+    height: 100px;
 }
 
-.poke-box {
-    color: black;
-    padding: 1rem;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    text-decoration: none;
-}
-
-.profile-box{
-    color: black;
-    padding: 1rem;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    text-decoration: none;
-}
-
-.box{
-    list-style-type: none;
+.box {
+float: right;
+justify-content: space-evenly;
 }

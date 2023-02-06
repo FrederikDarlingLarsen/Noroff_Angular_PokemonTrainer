@@ -1,12 +1,13 @@
+
+
 <nav class="navbar-color">
+    <div class="move-cat">    
+        <img class="catGif" src="https://i.gifer.com/JQt.gif" alt="">
+    </div>
     <ng-container *ngIf="user !== undefined">
-        <ul class="navbar-list">
-            <li class="box">
+            <div class="box">
                 <a routerLink="/pokelogue" class="poke-box">Pokelogue</a>
-            </li>
-            <li class="box">
                 <a routerLink="/profile" class="profile-box">Profile</a>
-            </li>
-        </ul>
+            </div>
     </ng-container>
 </nav>
