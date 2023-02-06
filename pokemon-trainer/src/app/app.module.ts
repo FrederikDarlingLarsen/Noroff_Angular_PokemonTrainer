@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
 import { ProfilePage } from './pages/profile/profile.page';
 import { FavouriteButtonComponent } from './components/favourite-button/favourite-button.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 
 // Decorator
@@ -23,6 +24,7 @@ import { FavouriteButtonComponent } from './components/favourite-button/favourit
     PokemonListComponent,
     ProfilePage,
     FavouriteButtonComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
