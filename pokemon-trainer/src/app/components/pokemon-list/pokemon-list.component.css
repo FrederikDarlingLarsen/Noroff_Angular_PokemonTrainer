@@ -1,7 +1,5 @@
 ul{
-    /* text-align: center; */
     list-style-type: none;
-    /* display: inline; */
     columns: 3;
     -webkit-columns: 3;
     -moz-columns: 3;
@@ -9,16 +7,18 @@ ul{
     padding: 0;
     margin-left: 22%;
 margin-right: 22%;
-
 }
+
 li{
 
-  background-color: aliceblue;
+background-color: aliceblue;
 
  margin-top: 30px;
   border-radius: 16px;
   display: inline-block;
 width: 100%;
+
+padding-bottom: 28px;
 }
 
 img{
@@ -33,7 +33,6 @@ button{
     margin: 30px;
     border-radius: 10px;
     font-size:20px;
-    
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-weight: bolder;
 }
@@ -42,7 +41,7 @@ span{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: x-large;
    display: block;
-   padding-block-end: 10px;
+   padding-block-end: 20px;
 }
 
 div{

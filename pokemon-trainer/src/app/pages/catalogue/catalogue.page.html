@@ -1,9 +1,5 @@
-
-
-<h1>Pokelogue</h1>
-
 <main>
-    <p>Welcome {{username}}!</p>
+    <h4 class="username">Welcome {{username}}!</h4>
     <p *ngIf="loading">Loading... </p>
     <app-pokemon-list [pokemon]="pokemon"></app-pokemon-list>
     <p>Page: {{pageNum}}</p>

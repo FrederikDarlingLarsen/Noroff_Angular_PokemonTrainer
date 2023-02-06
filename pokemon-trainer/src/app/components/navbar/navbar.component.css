@@ -1,6 +1,5 @@
 
 .navbar-color{
-    /* display: flex; */
     position: fixed;
     top: 0;
     left: 0;
@@ -10,14 +9,31 @@
     color: black;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     height: 5rem;
+    z-index: 5;
 }
 
 .catGif{
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
 }
 
-.box {
-float: right;
-justify-content: space-evenly;
+.text-box {
+    text-align: right;
+    margin-top: -3.5rem;
+    margin-right: 2rem;
+    
+}
+
+.profile{
+    color: black;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-decoration: none;
+}
+
+
+.pokelogue{
+    padding: 1rem;
+    color: black;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-decoration: none;
 }
