@@ -148,6 +148,8 @@ get pageNum(): number{
     public pokemonById(id: string): Pokemon | undefined {
       if(this._pokemon){
       return this._pokemon.find((pokemon: Pokemon) => pokemon.name === id); //Might not work
+      }else{
+        return undefined
       }
     }
 

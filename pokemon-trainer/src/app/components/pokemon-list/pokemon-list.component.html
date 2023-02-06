@@ -4,6 +4,7 @@
         <div>
         <img src={{pokemon.image}} alt="" width="140px">
         <span>{{pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}}</span>
+        <app-favourite-button [pokemonId]="pokemon.name"></app-favourite-button>
     </div>
     </li>
 </ul>
