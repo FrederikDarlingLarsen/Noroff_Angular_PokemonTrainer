@@ -4,8 +4,6 @@ import { PokemonPokelogueService } from 'src/app/services/pokemon-pokelogue/poke
 import { UserService } from 'src/app/services/user.service';
 import { StorageUtil } from 'src/app/utils/storage.utils';
 
-// Video 8 - 10min ish
-
 @Component({
   selector: 'app-catalogue',
   templateUrl: './catalogue.page.html',

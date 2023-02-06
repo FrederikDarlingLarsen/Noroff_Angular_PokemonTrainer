@@ -7,8 +7,6 @@ import { StorageUtil } from 'src/app/utils/storage.utils';
 import { environment } from 'src/environments/environment';
 const {apiPoke} = environment;
 
-// Video 8
-
 @Injectable({
   providedIn: 'root'
 })
@@ -55,6 +53,12 @@ get pageNum(): number{
 
 
     if(StorageUtil.storageRead<boolean>("hasFetched") === false){
+      if(this._pokemon){
+    if (this._pokemon.length > 0 || this.loading) {
+      return;
+    }
+  }
+  
     this._loading = true;
     this.http.get<Pokemon[]>(`${apiPoke}?limit=1000&offset=0`)
       .pipe(
@@ -141,6 +145,12 @@ get pageNum(): number{
      }
     
     
+    public pokemonById(id: string): Pokemon | undefined {
+      if(this._pokemon){
+      return this._pokemon.find((pokemon: Pokemon) => pokemon.name === id); //Might not work
+      }
+    }
+
   }
 
 

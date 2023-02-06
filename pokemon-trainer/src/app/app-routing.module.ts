@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CataloguePage } from './pages/catalogue/catalogue.page';
 import { LoginPage } from './pages/login/login.page';
 import { AuthGuard } from 'src/guards/auth.guard';
+import { ProfilePage } from './pages/profile/profile.page';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
     component: CataloguePage,
     
   },
+  {
+    path: "profile",
+    component: ProfilePage
+  }
 
 ];
 

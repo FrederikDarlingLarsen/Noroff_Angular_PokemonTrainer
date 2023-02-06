@@ -1,0 +1,14 @@
+.username {
+    font-size: 20px;
+    text-align: center;
+    /* background-color: darkgray; */
+    color: black;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.main{
+    background-color: lightpink;
+    height: 1100px;
+}

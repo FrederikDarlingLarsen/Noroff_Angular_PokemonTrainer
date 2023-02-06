@@ -1,0 +1,9 @@
+<button (click)="onFavouriteClick()" class="favourite-button-color">   
+    <ng-container *ngIf="isFavourite; then favourite else notFavourite"></ng-container>
+    <ng-template #favourite>
+        <i class="fa-solid fa-heart"></i>
+    </ng-template>
+    <ng-template #notFavourite>
+        <i class="fa-regular fa-heart"></i>
+    </ng-template>
+</button>
